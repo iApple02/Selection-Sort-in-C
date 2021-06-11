@@ -18,7 +18,7 @@ void addLog(int* array, int size, int replaceIdx, int currIdx, LinkedList* logs)
 
     /* Copy elements in a separate array to prevent all pointers pointing
      * to the original array */
-    for (i = 0; i < size; i++)
+    for(i = 0; i < size; i++)
     {
         currArray[i] = array[i];
     }
@@ -45,7 +45,7 @@ void printLogs(int* array, int size, LinkedList* logs)
  
     /* Print sorted array section */
     printf("Sorted Array: ");
-    for (i = 0; i < size; i++)
+    for(i = 0; i < size; i++)
     {
         printGreenNumber(array[i]);
     }
@@ -55,7 +55,7 @@ void printLogs(int* array, int size, LinkedList* logs)
 
     /* Traverse the linked list */
     node = logs->head;
-    while (node != NULL)
+    while(node != NULL)
     {
         /* Node data from each pass in selection sort */
         entry = node->data;
@@ -64,10 +64,10 @@ void printLogs(int* array, int size, LinkedList* logs)
         currArray = entry->array;
         
         /* Print current array */
-        for (i = 0; i < size; i++)
+        for(i = 0; i < size; i++)
         {
             /* Highlight sorted elements */
-            if (i <= idx) 
+            if(i <= idx) 
             {
                 printGreenNumber(currArray[i]);
             }
@@ -78,10 +78,14 @@ void printLogs(int* array, int size, LinkedList* logs)
             }
         }
 
-        /* No swaps in last iteration, print a different message */       
-        if (idx + 1 == size)
+        /* No swaps in last iteration, print a different message */
+        if(idx + 1 == size)
         {
             printf("\nThen, the last number is %03d.\n", currArray[swapIdx]);
+        }
+        else if(idx == swapIdx)
+        {
+            printf("\nValue number %d is %03d. It was already in the right spot.\n\n", idx + 1, currArray[swapIdx]);
         }
         else
         { 

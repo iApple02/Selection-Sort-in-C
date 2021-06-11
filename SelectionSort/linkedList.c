@@ -171,4 +171,3 @@ void freeLinkedList(LinkedList* list, void (*freeData)(void*))
     /* Free list once everything inside is freed */
     free(list);
 }
-

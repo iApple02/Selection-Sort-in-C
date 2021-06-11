@@ -22,7 +22,7 @@ void storeArray(char* filename, int* array)
     size = fscanf(file, "%d\n", &number);
 
     /* Go through every line in the file until no more lines */
-    while (size != EOF)
+    while(size != EOF)
     {
         /* Store number into array and increment index */
         array[i] = number;
@@ -45,7 +45,7 @@ int getFileSize(char* filename)
    
     /* File does not exist, return invalid count value
      * which terminates the program later */ 
-    if (file == NULL)
+    if(file == NULL)
     {
         count = -1;
     }
@@ -57,7 +57,7 @@ int getFileSize(char* filename)
         while(size != EOF)
         {
             /* \n indicates end of one line, increment count */
-            if (size == '\n')
+            if(size == '\n')
             {
                 count++;
             }

@@ -23,14 +23,14 @@ int inputArraySize()
 
         /* Checks for integer data type
          * Remove character from input stream */
-        while (getchar() != '\n');
+        while(getchar() != '\n');
 
         /* Errors from invalid input */
-        if (size != 1)
+        if(size != 1)
         {
             printf("Only integer values are accepted.\n\n");
         }
-        else if (number < 3 || number > 10)
+        else if(number < 3 || number > 10)
         {
             printf("The size of the array must be between 3 to 10 inclusive.\n\n");
         }
@@ -40,7 +40,7 @@ int inputArraySize()
             exit = TRUE;
         }
     /* Loop until valid input */
-    } while (exit == FALSE);
+    } while(exit == FALSE);
 
     return number;
 }
@@ -56,7 +56,7 @@ void generate(int* array, int size)
     srand(time(NULL));
     
     /* For each index in the array, store random value */
-    for (i = 0; i < size; i++)
+    for(i = 0; i < size; i++)
     { 
         /* Random values between 0 and 999 */  
         array[i] = (rand() % (MAXVAL - MINVAL + 1)) + MINVAL;

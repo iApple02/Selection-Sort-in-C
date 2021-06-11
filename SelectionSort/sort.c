@@ -66,7 +66,7 @@ int main(int argc, char** argv)
 
         /* Invalid */
         default:
-            printf("Invalid argument format.\n");
+            printf("Usage: ./sort <sleepTime>. OR ./sort <sleepTime> <file>\n");
     }
 
     /* Free linked list */
@@ -86,15 +86,15 @@ void selectionSort(int* array, int size, float time, LinkedList* logs)
     system("clear");
  
     /* Iterate through all elements */
-    for (i = 0; i < size; i++)
+    for(i = 0; i < size; i++)
     {
         smallIdx = i;
         /* Compare the next elements with element i and look for the smallest
          * value */
-        for (j = i + 1; j < size; j++)
+        for(j = i + 1; j < size; j++)
         {
             /* If a smaller element is found, keep track of it */
-            if (array[j] < array[smallIdx])
+            if(array[j] < array[smallIdx])
             {
                 smallIdx = j;
             }
@@ -128,15 +128,15 @@ void animateArray(int* array, int size, int smallIdx, int outerIdx, int innerIdx
     printf("\n");
 
     /* Print current array */
-    for (i = 0; i < size; i++)
+    for(i = 0; i < size; i++)
     {
         /* Highlight lowest element in red */
-        if (array[i] == array[smallIdx])
+        if(array[i] == array[smallIdx])
         {
             printRedNumber(array[i]);
         }
         /* Highlight sorted elements in green */
-        else if (i < outerIdx)
+        else if(i < outerIdx)
         {
             printGreenNumber(array[i]);
         }
@@ -154,7 +154,7 @@ void animateArray(int* array, int size, int smallIdx, int outerIdx, int innerIdx
      * The spacing should start at the current element being compared, i + 1 
      * Arrow does not need to be beneath i, since the initial small index is
      * set to that and is not a comparison but an initialisation */
-    for (i = 0; i < innerIdx; i++)
+    for(i = 0; i < innerIdx; i++)
     {
         printf("    ");
     }
@@ -175,10 +175,10 @@ void animateSwap(int* array, int size, int smallIdx, int outerIdx, float time)
     int i, j;
     
     /* smallIdx - outerIdx gives the number of frames needed for the animation */
-    for (i = 0; i < smallIdx - outerIdx; i++)
+    for(i = 0; i < smallIdx - outerIdx; i++)
     {
         /* For the top line, add spacing until smallIdx's position */
-        for (j = 0; j < outerIdx + i + 1; j++)
+        for(j = 0; j < outerIdx + i + 1; j++)
         {
             printf("    ");
         }
@@ -186,23 +186,18 @@ void animateSwap(int* array, int size, int smallIdx, int outerIdx, float time)
         printf("%d\n", array[outerIdx]);
 
         /* Print current array */
-        for (j = 0; j < size; j++)
+        for(j = 0; j < size; j++)
         {
             /* Highlight sorted elements in green */
-            if (j < outerIdx)
+            if(j < outerIdx)
             {
                 printGreenNumber(array[j]);
             }
             /* If j matches any of the two indexes, don't show number
              * The numbers will appear on the top and bottom line instead */
-            else if (j == smallIdx || j == outerIdx)
+            else if(j == smallIdx || j == outerIdx)
             {
                 printf("    ");
-            } 
-            /* Highlight sorted elements in green */
-            else if (j < outerIdx)
-            {
-                printGreenNumber(array[j]);
             }
             else
             {
